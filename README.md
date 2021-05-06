@@ -4,13 +4,13 @@ A tool for deploying many tasks automatically.
 
 ## Installation
 
-The simplest way to install the package is:
+I **recommend** you install from github to get the newest features:
 
-`pip install manytasks`
+`pip install git+https://github.com/dugu9sword/manytasks.git` 
 
-or you can install from github to get the newest features:
+You can also install the package (**maybe outdated**) from pypi:
 
-`pip install git+https://github.com/dugu9sword/manytasks.git`
+`pip install manytasks` 
 
 
 ## Quick Example
@@ -35,7 +35,7 @@ All running logs are stored in `task.logs`.
 {
   "executor": "python some.py",    # runnable
   "cuda": [0, 1],                  # [-1 if not using cuda] cuda index to use
-  "concurrency": 2,                # number of multi-processes 
+  "concurrency": 2,                # number of multi-processes
   "configs": {
     "==base==": [                  # basic configurations
       "--word-emb", [50, 100],
