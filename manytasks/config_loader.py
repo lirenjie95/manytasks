@@ -127,6 +127,8 @@ def load_config(path="sample_config.json"):
             print("You must specify which CUDA devices you want to use if concurrency is set to #CUDA.")
     elif concurrency == "#CPU":
         concurrency = max(1, multiprocessing.cpu_count() - 1)
+    else:
+        concurrency = int(concurrency)
     shared.concurrency = concurrency
     
     base_conf = parse_config(config["configs"]["==base=="])
