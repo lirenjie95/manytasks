@@ -112,10 +112,10 @@ def load_config(path="sample_config.json"):
     cuda = config["cuda"]
     if cuda == [] or cuda == -1:
         cuda = [-1]
-    else:
-        if psutil.WINDOWS:
-            print("CUDA shoule be -1 on windows")
-            exit()
+    
+    if cuda[0] != -1 and psutil.WINDOWS:
+        print("CUDA shoule be -1 on windows")
+        exit()
     shared.cuda = cuda
     
 
