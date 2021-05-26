@@ -12,6 +12,7 @@ from threading import Thread
 from time import sleep
 
 import jstyleson
+import yaml
 
 from manytasks import cuda_manager, shared
 from manytasks.config_loader import init_config, load_config
@@ -80,6 +81,8 @@ def parse_opt():
             show(opt.log_path, extract_fn=extract_last_line)
         elif opt.rule.endswith(".json"):
             show(opt.log_path, extract_fn=partial(extract_by_regex, jstyleson.load(open(opt.rule))))
+        elif opt.rule.endswith(".yaml"):
+            show(opt.log_path, extract_fn=partial(extract_by_regex, yaml.load(open(opt.rule))))
         elif opt.rule.endswith(".py"):
             sys.path.append(".")
             extract_fn = getattr(importlib.import_module(opt.rule[:-3]), "extract")
