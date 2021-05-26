@@ -10,7 +10,7 @@ I **recommend** you install from github to get the newest features:
 
 You can also install the package (**maybe outdated**) from pypi:
 
-`pip install manytasks` 
+`pip install manytasks [not recommended]` 
 
 
 ## Quick Example

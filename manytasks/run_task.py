@@ -79,8 +79,6 @@ def parse_opt():
             opt.log_path += '.logs'
         if opt.rule == "":
             show(opt.log_path, extract_fn=extract_last_line)
-        elif opt.rule.endswith(".json"):
-            show(opt.log_path, extract_fn=partial(extract_by_regex, jstyleson.load(open(opt.rule))))
         elif opt.rule.endswith(".yaml"):
             show(opt.log_path, extract_fn=partial(extract_by_regex, yaml.load(open(opt.rule))))
         elif opt.rule.endswith(".py"):
@@ -88,7 +86,7 @@ def parse_opt():
             extract_fn = getattr(importlib.import_module(opt.rule[:-3]), "extract")
             show(opt.log_path, extract_fn=extract_fn)
         else:
-            print("you must specify a legal rule file! (*.py, *.json)")
+            print("you must specify a legal rule file! (*.py, *.yaml)")
         exit()
     return opt
 
