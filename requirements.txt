@@ -6,4 +6,4 @@ jstyleson
 tabulate
 numpy
 psutil
-yaml
+pyyaml
